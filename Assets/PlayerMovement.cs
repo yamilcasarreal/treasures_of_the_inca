@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             actualSpeed = walkingSpeed;
 
         // Adds gravity
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * 2 * Time.deltaTime;
 
         // Moves character
         controller.Move(move * actualSpeed * Time.deltaTime);
