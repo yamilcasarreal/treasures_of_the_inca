@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
 
-
-    
-
     public CharacterController controller;
     public Transform groundCheck;
 
+    private bool ShouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && controller.isGrounded;
+
     [Header("Movement Parameters")]
     public float walkingSpeed;
+    public float actualSpeed;
     public float sprintSpeed;
     public float slowDownAmount;
+    public float crouchSpeed = .1f;
 
     [Header("Jump Parameters")]
     public float jumpHeight = 5f;
@@ -47,9 +49,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     public bool isGrounded;
 
+
+    public Camera playerCamera;
+
     public float x;
     public float z;
-    float actualSpeed;
+    
 
     // Update is called once per frame
     void Update()
@@ -64,9 +69,9 @@ public class PlayerMovement : MonoBehaviour
         }
         // Adds gravity
         velocity.y += gravity * 2 * Time.deltaTime;
-
-
         //-------------------------------------------------------------------
+
+
         //----------------PLAYER MOVEMENT-------------------------
         // Gets input
         x = Input.GetAxis("Horizontal");
@@ -100,11 +105,19 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-        
-        //crouching
-        //if (Input.GetKeyDown("Crouch"))
-        //------------------------------------------------------------
 
+        //crouching
+
+
+        if (Input.GetKeyDown(crouchKey))
+        {
+            actualSpeed = crouchSpeed;
+            HandleCrouch();
+        }
+        else
+            actualSpeed = walkingSpeed;
+        
+        
 
 
 
@@ -112,4 +125,41 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    private void HandleCrouch()
+    {
+        if (ShouldCrouch)
+        {
+            StartCoroutine(CrouchStand());
+        }
+    }
+    private IEnumerator CrouchStand ()
+    {
+        if (isCrouching && Physics.Raycast(playerCamera.transform.position, Vector3.up, 1f)){
+            yield break;
+        }
+        duringCrouchAnimation = true;
+
+        float timeElapsed = 0;
+        float targetHeight = isCrouching ? standingHeight : crouchHeight;
+        float currentHeight = controller.height;
+        Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
+        Vector3 currentCenter = controller.center;
+
+        while (timeElapsed < timeToCrouch)
+        {
+            controller.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
+            controller.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / timeToCrouch);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        controller.height = targetHeight;
+        controller.center = targetCenter;
+
+        isCrouching = !isCrouching;
+
+        duringCrouchAnimation = false;
+    }
 }
+ 
