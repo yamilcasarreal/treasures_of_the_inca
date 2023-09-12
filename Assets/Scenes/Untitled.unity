@@ -228,6 +228,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &354780365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 354780366}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &354780366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354780365}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.028, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 958030415}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665476738
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,16 +501,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 958030414}
-  GroundCheck: {fileID: 912840888}
+  groundCheck: {fileID: 354780366}
   walkingSpeed: 6
   sprintSpeed: 8
   slowDownAmount: 0.98
+  jumpHeight: 5
+  crouchHeight: 0.5
+  standingHeight: 2
+  timeToCrouch: 0.25
   gravity: -17
-  groundDistance: 3
+  groundDistance: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   move: {x: 0, y: 0, z: 0}
+  isGrounded: 0
   x: 0
   z: 0
 --- !u!143 &958030414
@@ -523,6 +559,7 @@ Transform:
   m_Children:
   - {fileID: 1254598297}
   - {fileID: 1534351237}
+  - {fileID: 354780366}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &974813708
