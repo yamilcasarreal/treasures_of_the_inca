@@ -39,6 +39,7 @@ public class PlayerMovementTest : MonoBehaviour
     [Header("Jumping Parameters")]
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private float gravity = 30.0f;
+    [SerializeField] private float jumpDelay = 10.0f;
 
 
     [Header("Crouch Parameters")]
@@ -132,7 +133,15 @@ public class PlayerMovementTest : MonoBehaviour
         {
             //if the player is crouching, jumpforce is halved, else it'll do normal jumpforce when jumping
             moveDirection.y = isCrouching ? jumpForce /2 : jumpForce;
+            if (characterController.isGrounded)
+                StartCoroutine(jumpingDelay()); //sets a timer delay between jumps. Player can not spam jump
         }
+    }
+    IEnumerator jumpingDelay(){ //jumping timer, does not allow player to spam jump
+        canJump = false; 
+        yield return new WaitForSeconds(jumpDelay);
+        canJump = true;
+        
     }
 
     private void HandleCrouch()
@@ -193,8 +202,6 @@ public class PlayerMovementTest : MonoBehaviour
         characterController.center = targetCenter;
 
         isCrouching = !isCrouching;
-
-
 
         duringCrouchAnimation = false;
     }
