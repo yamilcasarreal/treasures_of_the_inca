@@ -39,7 +39,7 @@ public class PlayerMovementTest : MonoBehaviour
     [Header("Jumping Parameters")]
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private float gravity = 30.0f;
-    [SerializeField] private float jumpDelay = 10.0f;
+    [SerializeField] private float jumpDelay = 5.0f;
 
 
     [Header("Crouch Parameters")]
