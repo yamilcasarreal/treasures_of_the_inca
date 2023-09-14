@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 958030413}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -859,7 +859,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 30
   m_StepOffset: 0.7
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -897,12 +897,14 @@ MonoBehaviour:
   canJump: 1
   canCrouch: 1
   canUseHeadBob: 1
+  willSlideOnSlopes: 1
   sprintKey: 304
   jumpKey: 32
   crouchKey: 306
   walkSpeed: 3
   sprintSpeed: 15
   crouchSpeed: 1.5
+  slopeSpeed: 8
   lookSpeedX: 2
   lookSpeedY: 2
   upperLookLimit: 80

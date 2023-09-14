@@ -16,6 +16,7 @@ public class PlayerMovementTest : MonoBehaviour
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool canCrouch = true;
     [SerializeField] private bool canUseHeadBob = true;
+    [SerializeField] private bool WillSlideOnSlopes = true;
 
     [Header("Controls")]
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
@@ -27,6 +28,7 @@ public class PlayerMovementTest : MonoBehaviour
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float sprintSpeed = 6.0f;
     [SerializeField] private float crouchSpeed = 1.5f;
+    [SerializeField] private float slopeSpeed = 8f;
     
 
     [Header("Look Parameters")]
@@ -39,7 +41,7 @@ public class PlayerMovementTest : MonoBehaviour
     [Header("Jumping Parameters")]
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private float gravity = 30.0f;
-    [SerializeField] private float jumpDelay = 3.0f;
+    [SerializeField] private float jumpDelay = 10.0f;
 
 
     [Header("Crouch Parameters")]
@@ -60,6 +62,26 @@ public class PlayerMovementTest : MonoBehaviour
     [SerializeField] private float crouchBobAmount = 0.025f;
     private float defaultYPos = 0;
     private float timer;
+
+    //SLIDING PARAMETERS
+
+    private Vector3 hitPointNormal;
+
+    private bool isSliding
+    {
+        get
+        {
+            if (characterController.isGrounded && Physics.Raycast(transform.position, Vector3.down, out RaycastHit slopeHit, 5f))
+            {
+                hitPointNormal = slopeHit.normal;
+                return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 
 
     private Camera playerCamera;
@@ -169,6 +191,10 @@ public class PlayerMovementTest : MonoBehaviour
         if (!characterController.isGrounded) //if player is not touching the ground, apply gravity
         {
             moveDirection.y -= 2f * gravity * Time.deltaTime;
+        }
+        if(WillSlideOnSlopes && isSliding)
+        {
+            moveDirection += new Vector3(hitPointNormal.x, -hitPointNormal.y, hitPointNormal.z) * slopeSpeed;
         }
         characterController.Move(moveDirection * Time.deltaTime);
     }
