@@ -39,7 +39,7 @@ public class PlayerMovementTest : MonoBehaviour
     [Header("Jumping Parameters")]
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private float gravity = 30.0f;
-    [SerializeField] private float jumpDelay = 5.0f;
+    [SerializeField] private float jumpDelay = 3.0f;
 
 
     [Header("Crouch Parameters")]
@@ -168,7 +168,7 @@ public class PlayerMovementTest : MonoBehaviour
     {
         if (!characterController.isGrounded) //if player is not touching the ground, apply gravity
         {
-            moveDirection.y -= gravity * Time.deltaTime;
+            moveDirection.y -= 2f * gravity * Time.deltaTime;
         }
         characterController.Move(moveDirection * Time.deltaTime);
     }
