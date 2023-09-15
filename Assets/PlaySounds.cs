@@ -5,15 +5,17 @@ using UnityEngine;
 public class PlaySounds : MonoBehaviour
 {
     public float footStepTimer;
+
     public GameObject player;
+    public CharacterController CC;
 
     private bool waiting;
 
     // Update is called once per frame
     void Update()
     {
-        // Only plays audio if moving a certain speed and if the previous coroutine finished
-        if ((player.GetComponent<PlayerMovementTest>().currentInput.x >= 2 || player.GetComponent<PlayerMovementTest>().currentInput.x <= -2) || (player.GetComponent<PlayerMovementTest>().currentInput.y >= 2 || player.GetComponent<PlayerMovementTest>().currentInput.y <= -2))
+        // Only plays audio if grounded and moving a certain speed and if the previous coroutine finished
+        if (CC.isGrounded && (player.GetComponent<PlayerMovementTest>().currentInput.x >= 2 || player.GetComponent<PlayerMovementTest>().currentInput.x <= -2) || (player.GetComponent<PlayerMovementTest>().currentInput.y >= 2 || player.GetComponent<PlayerMovementTest>().currentInput.y <= -2))
         {
             if (!waiting)
             {
