@@ -1137,6 +1137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footStepTimer: 0.5
   player: {fileID: 1702811795}
+  CC: {fileID: 1702811798}
 --- !u!1 &1763908512
 GameObject:
   m_ObjectHideFlags: 0
