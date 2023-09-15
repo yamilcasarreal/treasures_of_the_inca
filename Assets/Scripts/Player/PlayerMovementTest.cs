@@ -100,7 +100,7 @@ public class PlayerMovementTest : MonoBehaviour
     private CharacterController characterController;
 
     private Vector3 moveDirection;
-    private Vector2 currentInput;
+    public Vector2 currentInput;
 
     private float rotationX = 0;
 
