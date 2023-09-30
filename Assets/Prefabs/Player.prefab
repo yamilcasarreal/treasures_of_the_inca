@@ -5591,11 +5591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95d517397d514d4e969b8ec22f8111d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoilX: -10
-  recoilY: 50
-  recoilZ: 0
-  snappiness: 3
-  returnSpeed: 5
+  recoilX: -5
+  recoilY: 20
+  recoilZ: 3
+  snappiness: 2
+  returnSpeed: 3
 --- !u!82 &5304283955128859308
 AudioSource:
   m_ObjectHideFlags: 0
