@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -49,7 +50,6 @@ public class AI : MonoBehaviour
                 aiAnim.Stop("Idle");
                 aiAnim.Play("Run");
                 isChasing = true;
-
             }
         }
 
@@ -60,7 +60,7 @@ public class AI : MonoBehaviour
             ai.speed = chaseSpeed;
             if (ai.remainingDistance <= ai.stoppingDistance)
             {
-                player.gameObject.SetActive(false);
+                //player.gameObject.SetActive(false);
                 aiAnim.Stop("Run");
                 aiAnim.Play("Attack1");
                 StartCoroutine(deathRoutine());
@@ -121,6 +121,6 @@ public class AI : MonoBehaviour
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(jumpScareTime);
-        SceneManager.LoadScene(deathScene);
+        //SceneManager.LoadScene(deathScene);
     }
 }
