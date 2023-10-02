@@ -1,117 +1,110 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
-//using UnityEngine.Color;
+using UnityEngine.AI; //important
 
-public class SupayAI : MonoBehaviour
+//if you use this code you are contractually obligated to like the YT video
+public class SupayAI : MonoBehaviour //don't forget to change the script name if you haven't
 {
-    public bool isWalking;
-    public bool isChasing;
-    public bool isIdle;
-    public int sightDistance;
     public NavMeshAgent agent;
-    public float walkingSpeed = 1f, chaseSpeed = 5f, minChaseTime, maxChaseTime, chaseTime, minIdleTime, maxIdleTime, idleTime;
-    public int randNum;
     public float range; //radius of sphere
-    public Animation anim;
+    public Animator anim;
+    public float walkSpeed, chaseSpeed, idleSpeed, idleTime, minIdleTime, maxIdleTime, chaseTime, minChaseTime, maxChaseTime, sightDistance, jumpScareTime;
+    public bool isChasing, isWalking, isIdle;
+    //public int randIdleTime;
+
     public Transform centrePoint; //centre of the area the agent wants to move around in
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
 
-    Vector3 dest;
     public Transform player;
-    public Vector3 rayCastOffset;
+    Transform currenDest;
+    Vector3 dest;
+    public Vector3 rayCastOffSet;
 
     void Start()
     {
-        //StartCoroutine(StayIdle());
-        isWalking = true;
-        //anim.Play("Walk");
         agent = GetComponent<NavMeshAgent>();
+        isWalking = true;
     }
 
 
     void Update()
     {
+
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position + rayCastOffset, direction, out hit, sightDistance))
+        if (Physics.Raycast(transform.position + rayCastOffSet, direction, out hit, sightDistance))
         {
             if (hit.collider.gameObject.tag == "Player")
             {
-                //Debug.DrawRay(transform.position + rayCastOffset, Vector3.forward, UnityEngine.Color.red);
                 isWalking = false;
-                isChasing = true;
-                StopCoroutine(StayIdle());
+                StopCoroutine(stayIdle());
                 StopCoroutine(chaseRoutine());
                 StartCoroutine(chaseRoutine());
+                anim.ResetTrigger("walk");
+                anim.ResetTrigger("idle");
+                anim.SetTrigger("sprint");
+                isChasing = true;
             }
-        }
-        if (isIdle == true)
-        {
-            StopCoroutine(StayIdle());
-            anim.Play("Idle");
-            StartCoroutine(StayIdle());
         }
         if (isWalking == true)
         {
-            StopCoroutine(chaseRoutine());
-            StopCoroutine(StayIdle());
-            anim.Play("Walk");
-            agent.speed = walkingSpeed;
-            //anim.Play("Walk");
+            agent.speed = walkSpeed;
+            anim.ResetTrigger("sprint");
+            anim.ResetTrigger("idle");
+            anim.SetTrigger("walk");
             if (agent.remainingDistance <= agent.stoppingDistance) //done with path
             {
-                randNum = Random.Range(0, 5);
+                int randNum = Random.Range(0, 2);
                 if (randNum == 0)
                 {
-                    
-                    isWalking = false;
-                    isIdle = true;
-                    
-                }
-                else
-                {
-                    StopCoroutine(StayIdle());
-
                     Vector3 point;
                     if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
                     {
-                        //Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                        Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                         agent.SetDestination(point);
                     }
-                    //anim.Stop("Walk");
-                    //anim.Play("Idle");
-                    //agent.speed = 0f;
-                    //isWalking = false;
-                    //StopCoroutine(StayIdle());
-                    //anim.Play("Idle");
-                    //StartCoroutine(StayIdle());
-                    //isWalking = false;
-                    //anim.Play("Idle");
+                }
+                else
+                {
+                    isIdle = true;
                 }
             }
         }
+
+        if (isIdle == true)
+        {
+           
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("sprint");
+            anim.SetTrigger("idle");
+            agent.speed = idleSpeed;
+            StopCoroutine(stayIdle());
+            StartCoroutine(stayIdle());
+            isWalking = false;
+        }
+
         if (isChasing == true)
         {
-            anim.Play("Run");
             dest = player.position;
             agent.destination = dest;
             agent.speed = chaseSpeed;
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("idle");
+            anim.SetTrigger("sprint");
+            if (agent.remainingDistance <= agent.stoppingDistance+5)
             {
-                //player.gameObject.SetActive(false);
-                //aiAnim.Stop("Run");
-                //aiAnim.Play("Attack1");
-                //StartCoroutine(deathRoutine());
+                player.gameObject.SetActive(false);
+                anim.ResetTrigger("walk");
+                anim.ResetTrigger("idle");
+                anim.ResetTrigger("sprint");
+                anim.SetTrigger("jumpScare");
+                StartCoroutine(deathRoutine());
                 isChasing = false;
 
             }
 
         }
-        
 
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -130,24 +123,25 @@ public class SupayAI : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
-    IEnumerator StayIdle()
+
+    IEnumerator stayIdle()
     {
         idleTime = Random.Range(minIdleTime, maxIdleTime);
-        agent.speed = 0;
         yield return new WaitForSeconds(idleTime);
         isIdle = false;
-        anim.Stop("Idle");
         isWalking = true;
     }
     IEnumerator chaseRoutine()
     {
         chaseTime = Random.Range(minChaseTime, maxChaseTime);
         yield return new WaitForSeconds(chaseTime);
-        
         isChasing = false;
         isWalking = true;
-        //anim.Play("Walk");
-        
+    }
+
+    IEnumerator deathRoutine()
+    {
+        yield return new WaitForSeconds(jumpScareTime);
     }
 
 
