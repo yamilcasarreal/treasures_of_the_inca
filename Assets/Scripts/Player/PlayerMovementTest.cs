@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerMovementTest : MonoBehaviour
 {
+    //gjgijsgijgioshfisjgn
+
+
+    //branch test
     public bool CanMove { get; private set; } = true;
     private bool isSprinting => canSprint && Input.GetKey(sprintKey);
     private bool ShouldJump => Input.GetKey(jumpKey) && characterController.isGrounded;
@@ -96,7 +100,7 @@ public class PlayerMovementTest : MonoBehaviour
     private CharacterController characterController;
 
     private Vector3 moveDirection;
-    private Vector2 currentInput;
+    public Vector2 currentInput;
 
     private float rotationX = 0;
 
