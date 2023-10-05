@@ -10,7 +10,7 @@ public class FootstepSounds : MonoBehaviour
 
     private int index = 0;
 
-    public void PlaySound()
+    public void PlaySound(float volume)
     {
         // Get's index to loop through list
         index++;
@@ -31,6 +31,7 @@ public class FootstepSounds : MonoBehaviour
         }
 
         // Plays the audio clip
+        audioSource.volume = volume;
         audioSource.Play();
     }
 }
