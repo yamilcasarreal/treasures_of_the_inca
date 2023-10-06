@@ -47,6 +47,10 @@ public class SupaySounds : MonoBehaviour
             if (!jumpScareSource.isPlaying)
                 jumpScareSource.PlayOneShot(jumpScareSource.clip);
         }
+        if (supayAI.playerThrow == true)
+        {
+            jumpScareSource.Stop();
+        }
     }
 
     public void leftFoot()
