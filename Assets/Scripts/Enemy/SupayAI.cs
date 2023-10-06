@@ -6,11 +6,12 @@ using UnityEngine.AI; //important
 //if you use this code you are contractually obligated to like the YT video
 public class SupayAI : MonoBehaviour //don't forget to change the script name if you haven't
 {
+
     public NavMeshAgent agent;
     public float range; //radius of sphere
     public Animator anim;
     public float walkSpeed, chaseSpeed, idleSpeed, idleTime, minIdleTime, maxIdleTime, chaseTime, minChaseTime, maxChaseTime, sightDistance, jumpScareTime;
-    public bool isChasing, isWalking, isIdle;
+    public bool isChasing, isWalking, isIdle, playerCaptured;
     //public int randIdleTime;
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
@@ -23,6 +24,7 @@ public class SupayAI : MonoBehaviour //don't forget to change the script name if
 
     void Start()
     {
+        playerCaptured = false;
         agent = GetComponent<NavMeshAgent>();
         isWalking = true;
     }
@@ -86,24 +88,43 @@ public class SupayAI : MonoBehaviour //don't forget to change the script name if
 
         if (isChasing == true)
         {
+            isWalking = false;
             dest = player.position;
             agent.destination = dest;
             agent.speed = chaseSpeed;
             anim.ResetTrigger("walk");
             anim.ResetTrigger("idle");
             anim.SetTrigger("sprint");
-            if (agent.remainingDistance <= agent.stoppingDistance+5)
+            if (agent.remainingDistance <= agent.stoppingDistance +2)
             {
-                player.gameObject.SetActive(false);
+                /*player.gameObject.SetActive(false);
                 anim.ResetTrigger("walk");
                 anim.ResetTrigger("idle");
                 anim.ResetTrigger("sprint");
                 anim.SetTrigger("jumpScare");
+                playerCaptured = true;
                 StartCoroutine(deathRoutine());
                 isChasing = false;
+                isWalking = false;
+                isIdle = false;
+                agent.speed = 0;*/
+                playerCaptured = true;
 
             }
 
+        }
+        if (playerCaptured == true)
+        {
+            player.gameObject.SetActive(false);
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("idle");
+            anim.ResetTrigger("sprint");
+            anim.SetTrigger("jumpScare");
+            StartCoroutine(deathRoutine());
+            isChasing = false;
+            isWalking = false;
+            isIdle = false;
+            agent.speed = 0;
         }
 
     }
@@ -142,6 +163,11 @@ public class SupayAI : MonoBehaviour //don't forget to change the script name if
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(jumpScareTime);
+        //playerCaptured = false;
+        //anim.ResetTrigger("jumpScare");
+        anim.SetTrigger("throw");
+
+
     }
 
 
