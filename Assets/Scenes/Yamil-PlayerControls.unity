@@ -672,6 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWalking: 0
   isChasing: 0
+  isIdle: 0
   sightDistance: 10
   agent: {fileID: 597172280}
   walkingSpeed: 1
@@ -2295,7 +2296,8 @@ PrefabInstance:
       value: -0.28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4459781962956335488, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6922552503020879025, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
