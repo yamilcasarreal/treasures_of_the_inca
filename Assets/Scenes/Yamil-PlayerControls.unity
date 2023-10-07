@@ -1742,6 +1742,7 @@ MonoBehaviour:
   maxChaseTime: 5
   sightDistance: 5
   jumpScareTime: 3
+  isStaggered: 0
   isChasing: 0
   isWalking: 0
   isIdle: 0
@@ -1772,7 +1773,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3256f7c1552d2494d981293447fd739a, type: 3}
   chase: {fileID: 8300000, guid: 5e1cf0f7368910f43a5d9889dec51cf5, type: 3}
   jumpScare: {fileID: 8300000, guid: fb66cbf4da7fce141a5113b603725e11, type: 3}
-  yell: {fileID: 8300000, guid: 3e94cb7f2b0259848a94cb1809117da5, type: 3}
   footStepSource: {fileID: 1221331739}
   breathSource: {fileID: 1221331741}
   chaseSource: {fileID: 1221331743}
@@ -2294,6 +2294,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &1221331747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221331727}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.95, y: 3.67, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1242451642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,6 +2552,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000013057997990, guid: 35e86af1126343146985702c521cb10e, type: 3}
       propertyPath: m_Name
+      value: Supay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013057997990, guid: 35e86af1126343146985702c521cb10e, type: 3}
+      propertyPath: m_TagString
       value: Supay
       objectReference: {fileID: 0}
     - target: {fileID: 4000010019053710, guid: 35e86af1126343146985702c521cb10e, type: 3}
@@ -3473,6 +3498,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1000013057997990, guid: 35e86af1126343146985702c521cb10e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1221331745}
+    - targetCorrespondingSourceObject: {fileID: 1000013057997990, guid: 35e86af1126343146985702c521cb10e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1221331747}
   m_SourcePrefab: {fileID: 100100000, guid: 35e86af1126343146985702c521cb10e, type: 3}
 --- !u!1 &1706119250
 GameObject:
