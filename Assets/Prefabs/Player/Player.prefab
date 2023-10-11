@@ -5533,6 +5533,7 @@ MonoBehaviour:
   shooting_Sound: {fileID: 0}
   muzzle_Flash: {fileID: 2619301956083170386}
   fpsCam: {fileID: 1283647658134565185}
+  supayAI: {fileID: 0}
 --- !u!114 &7462090788946080429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5673,7 +5674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6922552503020879025}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.7475417, z: -0, w: 0.6642149}
   m_LocalPosition: {x: 0, y: 0.94000006, z: 0.19000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5682,7 +5683,7 @@ Transform:
   - {fileID: 8209758205498828924}
   - {fileID: 3728892399247894307}
   m_Father: {fileID: 8173227011089441124}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 96.756, z: 0}
 --- !u!20 &1283647658134565185
 Camera:
   m_ObjectHideFlags: 0
