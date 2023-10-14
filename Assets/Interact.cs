@@ -17,7 +17,7 @@ public class Interact : MonoBehaviour
         int layerMask = 1 << 15;
         RaycastHit hit;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, layerMask))
             {

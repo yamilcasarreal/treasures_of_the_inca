@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8292491374564912836}
   - component: {fileID: 2517060260919342260}
   - component: {fileID: 9214270415714231214}
+  - component: {fileID: 4850488600950755666}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -328,6 +329,20 @@ MonoBehaviour:
   crouchVolume: 0.1
   player: {fileID: 2014794346400706124}
   CC: {fileID: 2039579246986426884}
+--- !u!114 &4850488600950755666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014794346400706124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd782e0370238c54da124911bd294228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfArtifactsFound: 0
+  numberOfArtifacts: 3
 --- !u!1 &2665748169797528437
 GameObject:
   m_ObjectHideFlags: 0
