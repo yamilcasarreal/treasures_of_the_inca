@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SmallEnemyAI : MonoBehaviour
-{
+{/*
     //NashMeshAgent variable
     public NavMeshAgent ai;
 
@@ -30,20 +30,20 @@ public class SmallEnemyAI : MonoBehaviour
     Vector3 dest;
 
     //int to randomize the AI's destinations
-    /*randNum2 will be used to randomize something when the AI
-    reaches its destination*/
+    //randNum2 will be used to randomize something when the AI
+    //reaches its destination
     int randNum, randNum2;
 
     void Start()
     {
         walking = true;
 
-        /* randNum will equal to a random number from a random range of
-         numbers between 0 and destinationAmount*/
+        //randNum will equal to a random number from a random range of
+         //numbers between 0 and destinationAmount
         randNum = Random.Range(0, destinationAmount);
 
-        /*currentDest will equal to a destination from the destinations list
-         based on what the randNum equals to*/
+        //currentDest will equal to a destination from the destinations list
+         //based on what the randNum equals to
         currentDest = destinations[randNum];
 
     }
@@ -55,15 +55,15 @@ public class SmallEnemyAI : MonoBehaviour
         {
             dest = currentDest;
 
-            /*AI destination will equal to dest, meaning the AI will move 
-             toward dest*/
+            //AI destination will equal to dest, meaning the AI will move 
+             //toward dest
             ai.destination = dest;
 
             //AI speed will equal walkSpeed
             ai.speed = walkSpeed;
 
-            /*if AI remaining distance is less than or equal to AI
-            stopping distance*/
+            //if AI remaining distance is less than or equal to AI
+            //stopping distance
             if(ai.remainingDistance <= ai.stoppingDistance)
             {
                 //randNum2 will equal a number between 0 and 1
@@ -71,8 +71,8 @@ public class SmallEnemyAI : MonoBehaviour
 
                 if(randNum2 == 0)
                 {
-                    /*if randNum2 is equal to 0, the AI will pick a new 
-                    random destination and keep moving*/
+                    //if randNum2 is equal to 0, the AI will pick a new 
+                    //random destination and keep moving
 
                     randNum = Random.Range(0, destinationAmount);
                     currentDest = destinations[randNum];
@@ -80,8 +80,8 @@ public class SmallEnemyAI : MonoBehaviour
 
                 if(randNum2 ==1)
                 {
-                    /*if randNum2 is equal to 1, AI will go idle and a 
-                     coroutine will start*/
+                    //if randNum2 is equal to 1, AI will go idle and a 
+                     //coroutine will start
 
                     animate.ResetTrigger("walk");
                     animate.ResetTrigger("idle");
@@ -99,4 +99,5 @@ public class SmallEnemyAI : MonoBehaviour
         idleTime = Random.Range(minIdleTime, maxIdleTime);
         yield return new WaitForSeconds(idleTime)
     }
+    */
 }
