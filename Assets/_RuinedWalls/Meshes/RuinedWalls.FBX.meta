@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: efd28f7e806f53046a4433de28d07ad2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: RuineCollumn005
+    100002: RuineCollumn006
+    100004: RuineCollumn1
+    100006: RuineCollumn2
+    100008: RuineCollumn3
+    100010: RuineCollumn4
+    100012: RuineCollumnSmall1
+    100014: RuineCollumnSmall2
+    100016: RuineCollumnSmall3
+    100018: RuineCollumnSmall4
+    100020: RuinedWallC1
+    100022: RuinedWallC2
+    100024: RuinedWallC3
+    100026: RuinedWallC4
+    100028: RuinedWallC5
+    100030: RuinedWallC6
+    100032: //RootNode
+    100034: RuineWall009
+    100036: RuineWall1
+    100038: RuineWall2
+    100040: RuineWall3
+    100042: RuineWall4
+    100044: RuineWall5
+    100046: RuineWall7
+    100048: RuineWall8
+    400000: RuineCollumn005
+    400002: RuineCollumn006
+    400004: RuineCollumn1
+    400006: RuineCollumn2
+    400008: RuineCollumn3
+    400010: RuineCollumn4
+    400012: RuineCollumnSmall1
+    400014: RuineCollumnSmall2
+    400016: RuineCollumnSmall3
+    400018: RuineCollumnSmall4
+    400020: RuinedWallC1
+    400022: RuinedWallC2
+    400024: RuinedWallC3
+    400026: RuinedWallC4
+    400028: RuinedWallC5
+    400030: RuinedWallC6
+    400032: //RootNode
+    400034: RuineWall009
+    400036: RuineWall1
+    400038: RuineWall2
+    400040: RuineWall3
+    400042: RuineWall4
+    400044: RuineWall5
+    400046: RuineWall7
+    400048: RuineWall8
+    2100000: RuinCollumns
+    2100002: RuinWalls1
+    2100004: RuinWalls2
+    2300000: RuineCollumn005
+    2300002: RuineCollumn006
+    2300004: RuineCollumn1
+    2300006: RuineCollumn2
+    2300008: RuineCollumn3
+    2300010: RuineCollumn4
+    2300012: RuineCollumnSmall1
+    2300014: RuineCollumnSmall2
+    2300016: RuineCollumnSmall3
+    2300018: RuineCollumnSmall4
+    2300020: RuinedWallC1
+    2300022: RuinedWallC2
+    2300024: RuinedWallC3
+    2300026: RuinedWallC4
+    2300028: RuinedWallC5
+    2300030: RuinedWallC6
+    2300032: RuineWall009
+    2300034: RuineWall1
+    2300036: RuineWall2
+    2300038: RuineWall3
+    2300040: RuineWall4
+    2300042: RuineWall5
+    2300044: RuineWall7
+    2300046: RuineWall8
+    3300000: RuineCollumn005
+    3300002: RuineCollumn006
+    3300004: RuineCollumn1
+    3300006: RuineCollumn2
+    3300008: RuineCollumn3
+    3300010: RuineCollumn4
+    3300012: RuineCollumnSmall1
+    3300014: RuineCollumnSmall2
+    3300016: RuineCollumnSmall3
+    3300018: RuineCollumnSmall4
+    3300020: RuinedWallC1
+    3300022: RuinedWallC2
+    3300024: RuinedWallC3
+    3300026: RuinedWallC4
+    3300028: RuinedWallC5
+    3300030: RuinedWallC6
+    3300032: RuineWall009
+    3300034: RuineWall1
+    3300036: RuineWall2
+    3300038: RuineWall3
+    3300040: RuineWall4
+    3300042: RuineWall5
+    3300044: RuineWall7
+    3300046: RuineWall8
+    4300000: RuineCollumn1
+    4300002: RuineCollumn2
+    4300004: RuineCollumn3
+    4300006: RuineCollumn4
+    4300008: RuineCollumnSmall1
+    4300010: RuineCollumnSmall2
+    4300012: RuineCollumnSmall3
+    4300014: RuineCollumnSmall4
+    4300016: RuineWall1
+    4300018: RuineWall2
+    4300020: RuineWall3
+    4300022: RuineWall4
+    4300024: RuineWall5
+    4300026: RuineWall7
+    4300028: RuineWall8
+    4300030: RuinedWallC1
+    4300032: RuinedWallC2
+    4300034: RuinedWallC3
+    4300036: RuinedWallC4
+    4300038: RuinedWallC5
+    4300040: RuinedWallC6
+    4300042: RuineWall009
+    4300044: RuineCollumn005
+    4300046: RuineCollumn006
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
