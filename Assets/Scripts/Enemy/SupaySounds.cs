@@ -15,24 +15,25 @@ public class SupaySounds : MonoBehaviour
     public AudioSource chaseSource;
     public AudioSource jumpScareSource;
     //public GameObject supay;
-    public SupayAI supayAI;
+   // public SupayAI supayAI;
+    public SupayAITest supayAITest;
     // Start is called before the first frame update
     void Start()
     {
         //soundSource = GetComponent<AudioSource>();
-        supayAI = GameObject.Find("Supay").GetComponent<SupayAI>();
+        supayAITest = GameObject.Find("Supay").GetComponent<SupayAITest>();
         //breathSource = GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (supayAI.isWalking == true)
+        if (supayAITest.playerInSight == false)
         {
             //breathSource.Stop();
             breath();
         }
-        if (supayAI.isChasing == true)
+        if (supayAITest.playerInSight == true)
         {
             breathSource.Stop();
             chaseSource.clip = chase;
@@ -40,17 +41,17 @@ public class SupaySounds : MonoBehaviour
                 chaseSource.PlayOneShot(chaseSource.clip);
             //breathSource.Play();
         }
-        if (supayAI.playerCaptured == true)
+        if (supayAITest.playerCaptureRange == true)
         {
             chaseSource.Stop();
             jumpScareSource.clip = jumpScare;
             if (!jumpScareSource.isPlaying)
                 jumpScareSource.PlayOneShot(jumpScareSource.clip);
         }
-        if (supayAI.playerThrow == true)
+        /*if (supayAI.playerThrow == true)
         {
             jumpScareSource.Stop();
-        }
+        }*/
     }
 
     public void leftFoot()
@@ -81,7 +82,7 @@ public class SupaySounds : MonoBehaviour
         int n = Random.Range(1, breathingSounds.Length);
         breathSource.clip = breathingSounds[n];
         //breathSource.PlayOneShot(soundSource.clip);
-        if (!breathSource.isPlaying && supayAI.isChasing == false)
+        if (!breathSource.isPlaying && supayAITest.playerInSight == false)
         {
             breathSource.PlayOneShot(breathSource.clip);
             //breathSource.Play();

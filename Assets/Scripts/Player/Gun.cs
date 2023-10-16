@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour
     public ParticleSystem muzzle_Flash;
     public Camera fpsCam;
     public SupayAI supayAI;
+    public SupayAITest supayAITest;
 
     
 
@@ -24,7 +25,7 @@ public class Gun : MonoBehaviour
     {
         Recoil_Script = GetComponent<Recoil>();
         shooting_Sound = GetComponent<AudioSource>();
-        supayAI = GameObject.Find("Supay").GetComponent<SupayAI>();
+        supayAITest = GameObject.Find("Supay").GetComponent<SupayAITest>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class Gun : MonoBehaviour
             Recoil_Script.RecoilFire();
             Shoot();
             StartCoroutine(ShootDelay());
+            //supayAI.isChasing = true;
         }
     }
     void Shoot()
@@ -46,7 +48,11 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             if (hit.collider.gameObject.tag == "Supay")
-                supayAI.isStaggered = true;
+            {
+                supayAITest.playerInSight = true;
+                supayAITest.gotShot = true;
+                supayAITest.reset = true;
+            }
             Debug.Log(hit.transform.name);
         }
     }
