@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public SupayAI supayAI;
     public SupayAITest supayAITest;
+    public SmallEnemyAI smallEnemyAI;
 
     
 
@@ -26,6 +27,7 @@ public class Gun : MonoBehaviour
         Recoil_Script = GetComponent<Recoil>();
         shooting_Sound = GetComponent<AudioSource>();
         supayAITest = GameObject.Find("Supay").GetComponent<SupayAITest>();
+        smallEnemyAI = GameObject.Find("Zombie Mutant").GetComponent<SmallEnemyAI>();
     }
 
     // Update is called once per frame
@@ -55,9 +57,15 @@ public class Gun : MonoBehaviour
                 supayAITest.playerInSight = true;
                 //supayAITest.chaseTime = 10f;
                 supayAITest.isStaggered = true;
-                supayAITest.gotShot = true;
-                supayAITest.reset = true;
             }
+
+            if (hit.collider.gameObject.tag == "smallEnemy")
+            {
+                smallEnemyAI.playerInSight = true;
+                //supayAITest.chaseTime = 10f;
+                smallEnemyAI.isStaggered = true;
+            }
+
             Debug.Log(hit.transform.name);
         }
     }
