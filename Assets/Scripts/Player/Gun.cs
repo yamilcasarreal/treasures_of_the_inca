@@ -39,7 +39,8 @@ public class Gun : MonoBehaviour
             Recoil_Script.RecoilFire();
             Shoot();
             StartCoroutine(ShootDelay());
-            supayAITest.isAlerted = true;
+            if (supayAITest.playerInSight == false)
+                supayAITest.isAlerted = true;
             supayAITest.chaseTime = 10f;
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 [RequireComponent(typeof(AudioSource))]
 public class SupaySounds : MonoBehaviour
@@ -10,6 +11,9 @@ public class SupaySounds : MonoBehaviour
     public AudioClip[] breathingSounds;
     public AudioClip chase;
     public AudioClip jumpScare;
+    public AudioClip scream;
+    public AudioClip throwPlayer;
+    public AudioSource screamSource;
     public AudioSource footStepSource;
     public AudioSource breathSource;
     public AudioSource chaseSource;
@@ -48,10 +52,10 @@ public class SupaySounds : MonoBehaviour
             if (!jumpScareSource.isPlaying)
                 jumpScareSource.PlayOneShot(jumpScareSource.clip);
         }
-        /*if (supayAI.playerThrow == true)
+        if (supayAITest.playerCaptured == true)
         {
             jumpScareSource.Stop();
-        }*/
+        }
     }
 
     public void leftFoot()
@@ -70,7 +74,6 @@ public class SupaySounds : MonoBehaviour
         int n = Random.Range(1, footstepSounds.Length);
         footStepSource.clip = footstepSounds[n];
         footStepSource.PlayOneShot(footStepSource.clip);
-        //soundSource.Play();
 
         footstepSounds[n] = footstepSounds[0];
         footstepSounds[0] = footStepSource.clip;
@@ -81,20 +84,24 @@ public class SupaySounds : MonoBehaviour
     {
         int n = Random.Range(1, breathingSounds.Length);
         breathSource.clip = breathingSounds[n];
-        //breathSource.PlayOneShot(soundSource.clip);
         if (!breathSource.isPlaying && supayAITest.playerInSight == false)
         {
             breathSource.PlayOneShot(breathSource.clip);
-            //breathSource.Play();
         }
         
-            //breathSource.Stop();
-        //StartCoroutine(wait());
         breathingSounds[n] = breathingSounds[0];
         breathingSounds[0] = breathSource.clip;
        
 
     }
+
+    public void yell()
+    {
+        screamSource.clip = scream;
+        screamSource.PlayOneShot(screamSource.clip);
+    }
+
+    
 
     
 

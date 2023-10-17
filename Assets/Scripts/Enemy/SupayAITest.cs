@@ -63,9 +63,6 @@ public class SupayAITest : MonoBehaviour
             Chase();
         else if (playerInSight && playerCaptureRange)
             Capture();
-        
-
-
 
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -87,11 +84,12 @@ public class SupayAITest : MonoBehaviour
 
     void Alerted()
     {
+        isWalking = false;
         agent.speed = 0;
         anim.ResetTrigger("walk");
         anim.ResetTrigger("idle");
         anim.SetTrigger("alerted");
-        StartCoroutine("alertRoutine");
+        StartCoroutine(alertRoutine());
 
     }
     void Patrol()
@@ -100,6 +98,7 @@ public class SupayAITest : MonoBehaviour
         if (isWalking)
         {
             //StopCoroutine(idleRoutine());
+            anim.ResetTrigger("alerted");
             anim.ResetTrigger("sprint");
             anim.ResetTrigger("idle");
             anim.SetTrigger("walk");
@@ -142,6 +141,7 @@ public class SupayAITest : MonoBehaviour
             anim.ResetTrigger("walk");
             anim.ResetTrigger("idle");
             anim.ResetTrigger("sprint");
+            anim.ResetTrigger("alerted");
             anim.SetTrigger("staggered");
 
         }
@@ -152,6 +152,7 @@ public class SupayAITest : MonoBehaviour
             anim.ResetTrigger("walk");
             anim.ResetTrigger("idle");
             anim.ResetTrigger("staggered");
+            anim.ResetTrigger("alerted");
             anim.SetTrigger("sprint");
         }
         dest = player.position;
