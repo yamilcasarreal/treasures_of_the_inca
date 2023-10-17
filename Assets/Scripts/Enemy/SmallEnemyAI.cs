@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class SmallEnemyAI : MonoBehaviour
-{
-    /*
+{/*
     //NashMeshAgent variable
-    public UnityEngine.AI.NavMeshAgent ai;
+    public NavMeshAgent ai;
 
     //List variable that will contain a list of our destinations tranforms
     public List<Transform> destinations;
@@ -16,7 +14,7 @@ public class SmallEnemyAI : MonoBehaviour
     public Animator animate;
 
     //float variables for walking speed, chase speed, idle, and destination amount
-    public float walkSpeed, chaseSpeed, minIdleTime, maxIdleTime, idelTime;
+    public float walkSpeed, chaseSpeed, minIdleTime, maxIdleTime, idelTime, destinationAmount;
 
     //boolean variables to determine if enemy is walking or chasing
     public bool walking, chasing;
@@ -34,10 +32,7 @@ public class SmallEnemyAI : MonoBehaviour
     //int to randomize the AI's destinations
     //randNum2 will be used to randomize something when the AI
     //reaches its destination
-
-    int randNum, randNum2; 
-
-    public int destinationAmount;
+    int randNum, randNum2;
 
     void Start()
     {
@@ -58,7 +53,7 @@ public class SmallEnemyAI : MonoBehaviour
         //if walking equals true, dest will equal to currentDest
         if(walking == true)
         {
-            dest = currentDest.position;
+            dest = currentDest;
 
             //AI destination will equal to dest, meaning the AI will move 
              //toward dest
@@ -89,9 +84,7 @@ public class SmallEnemyAI : MonoBehaviour
                      //coroutine will start
 
                     animate.ResetTrigger("walk");
-                    animate.SetTrigger("idle");
-
-                    ai.speed = 0;
+                    animate.ResetTrigger("idle");
                     StopCoroutine("stayIdle");
                     StartCoroutine("stayIdle");
 
@@ -104,17 +97,7 @@ public class SmallEnemyAI : MonoBehaviour
     IEnumerator stayIdle()
     {
         idleTime = Random.Range(minIdleTime, maxIdleTime);
-        yield return new WaitForSeconds(idleTime);
-
-        //after enemy stops being idle, ai's destination will be randomized again
-
-        walking = true;
-        randNum = Random.Range(0, destinationAmount);
-        currentDest = destinations[randNum];
-        
-        //ai will continue walking
-        animate.ResetTrigger("idle");
-        animate.SetTrigger("walk");
+        yield return new WaitForSeconds(idleTime)
     }
     */
 }

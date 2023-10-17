@@ -20,130 +20,113 @@ public class SupayAI : MonoBehaviour
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
 
     public Transform player;
-    Transform currenDest;
+    Transform currentDest;
     Vector3 dest;
     public Vector3 rayCastOffSet;
 
     void Start()
     {
-        //isAlerted = true;
-        shouldMove = true;
-        //playerCaptured = false;
         agent = GetComponent<NavMeshAgent>();
-        isIdle = true;
-    }
+        isWalking = true;
+    } 
 
 
     void Update()
     {
-        if (isAlerted == true) 
+       
+        Vector3 direction = (player.position - transform.position).normalized;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + rayCastOffSet, direction, out hit, sightDistance))
         {
-            anim.SetTrigger("shout");
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                isChasing = true;
+            }
         }
-        if (shouldMove == true)
+        if (isWalking == true || !isChasing)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position + rayCastOffSet, direction, out hit, sightDistance))
+            agent.speed = walkSpeed;
+            anim.ResetTrigger("sprint");
+            anim.ResetTrigger("idle");
+            anim.SetTrigger("walk");
+            StopCoroutine(stayIdle());
+            StopCoroutine(chaseRoutine());
+            if (agent.remainingDistance <= agent.stoppingDistance) //done with path
             {
-                if (hit.collider.gameObject.tag == "Player")
+                int randNum = Random.Range(0, 2);
+                if (randNum == 0)
                 {
-                    //isWalking = false;
-                    StopCoroutine(stayIdle());
-                    StopCoroutine(chaseRoutine());
-                    StartCoroutine(chaseRoutine());
-                    //anim.ResetTrigger("walk");
-                    //anim.ResetTrigger("idle");
-                    //anim.SetTrigger("sprint");
-
-                    isChasing = true;
-                }
-            }
-            if (isWalking == true)
-            {
-                agent.speed = walkSpeed;
-                anim.ResetTrigger("sprint");
-                anim.ResetTrigger("idle");
-                anim.SetTrigger("walk");
-                if (agent.remainingDistance <= agent.stoppingDistance) //done with path
-                {
-                    int randNum = Random.Range(0, 2);
-                    if (randNum == 0)
+                    Vector3 point;
+                    if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
                     {
-                        Vector3 point;
-                        if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
-                        {
-                            Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
-                            agent.SetDestination(point);
-                        }
-                    }
-                    else
-                    {
-                        isIdle = true;
+                        Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                        agent.SetDestination(point);
                     }
                 }
-            }
-
-            if (isIdle == true)
-            {
-
-                anim.ResetTrigger("walk");
-                anim.ResetTrigger("sprint");
-                anim.SetTrigger("idle");
-                agent.speed = idleSpeed;
-                StopCoroutine(stayIdle());
-                StartCoroutine(stayIdle());
-                isWalking = false;
-            }
-
-            if (isChasing == true)
-            {
-                isWalking = false;
-                dest = player.position;
-                agent.destination = dest;
-                agent.speed = chaseSpeed;
-                anim.ResetTrigger("walk");
-                anim.ResetTrigger("idle");
-                anim.ResetTrigger("staggered");
-                anim.SetTrigger("sprint");
-                if (agent.remainingDistance <= agent.stoppingDistance + 2)
+                else
                 {
-                    playerCaptured = true;
+                    isIdle = true;
                 }
-
             }
+        }
+
+        if (isIdle == true)
+        {
+
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("sprint");
+            anim.SetTrigger("idle");
+            agent.speed = idleSpeed;
+            StopCoroutine(stayIdle());
+            StartCoroutine(stayIdle());
+            isWalking = false;
+        }
+
+        if (isChasing == true)
+        {
+            isIdle = false;
+            isWalking = false;
+            StopCoroutine(stayIdle());
+            StopCoroutine(chaseRoutine());
+            StartCoroutine(chaseRoutine());
+            dest = player.position;
+            agent.destination = dest;
+            agent.speed = chaseSpeed;
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("idle");
+            anim.ResetTrigger("staggered");
+            anim.SetTrigger("sprint");
+            StartCoroutine(waitAFrame());
             
-            if (playerCaptured == true)
+
+        }
+            /*if (playerThrow == true)
             {
+                anim.ResetTrigger("jumpScare");
+                anim.SetTrigger("throw");
+            }*/
+        if (isStaggered == true)
+        {
+            agent.speed = 0;
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("idle");
+            anim.SetTrigger("staggered");
+            StartCoroutine(staggerDelay());
+        }
+        if (playerCaptured == true)
+        {
                 anim.ResetTrigger("walk");
                 anim.ResetTrigger("idle");
                 anim.ResetTrigger("sprint");
                 anim.SetTrigger("jumpScare");
-
-
                 StartCoroutine(deathRoutine());
                 isChasing = false;
                 isWalking = false;
                 isIdle = false;
                 agent.speed = 0;
-                //
-            }
-            if (playerThrow == true)
-            {
-                anim.ResetTrigger("jumpScare");
-                anim.SetTrigger("throw");
-            }
-        }
-        if (isStaggered == true)
-        {
-            shouldMove = false;
-            agent.speed = 0;
-            chaseTime = 10f;
-            anim.ResetTrigger("walk");
-            anim.ResetTrigger("idle");
-            anim.SetTrigger("staggered");
-            StartCoroutine(staggerDelay());
+                //player.gameObject.SetActive(false);
 
+            //
         }
 
     }
@@ -167,7 +150,7 @@ public class SupayAI : MonoBehaviour
     IEnumerator alertDelay()
     {
         yield return new WaitForSeconds(2);
-        shouldMove = true;
+        //shouldMove = true;
     }
 
     IEnumerator stayIdle()
@@ -180,23 +163,36 @@ public class SupayAI : MonoBehaviour
   
     IEnumerator chaseRoutine()
     {
-        //chaseTime = Random.Range(minChaseTime, maxChaseTime);
-        yield return new WaitForSeconds(5f);
+        chaseTime = 10f;
+        isChasing = true;
+        //Debug.Log(Time.time);
+        yield return new WaitForSeconds(chaseTime);
+        //Debug.Log(Time.time);
+        StopCoroutine(chaseRoutine());
         isChasing = false;
-        isWalking = true;
+        //isWalking = true;
     }
 
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(jumpScareTime);
-        playerThrow = true;
+        //playerThrow = true;
     }
     IEnumerator staggerDelay()
     {
         yield return new WaitForSeconds(0.5f);
         isStaggered = false;
-        shouldMove = true;
+        //shouldMove = true;
         isChasing = true;
+    }
+    IEnumerator waitAFrame()
+    {
+        yield return 0;
+        if (agent.remainingDistance <= agent.stoppingDistance + 2)
+        {
+            Debug.Log(agent.remainingDistance);
+            playerCaptured = true;
+        }
     }
 
 
