@@ -240,7 +240,7 @@ public class SupayAITest : MonoBehaviour
     IEnumerator waitAFrame()
     {
         yield return 0;
-        if (agent.remainingDistance <= agent.stoppingDistance + 2)
+        if (agent.remainingDistance <= agent.stoppingDistance + 4)
         {
             Debug.Log(agent.remainingDistance);
             playerCaptureRange = true;
