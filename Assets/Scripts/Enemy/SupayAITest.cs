@@ -14,7 +14,7 @@ public class SupayAITest : MonoBehaviour
     public float range; //radius of sphere
     public Animator anim;
     public float walkSpeed, chaseSpeed, idleSpeed, idleTime, minIdleTime, maxIdleTime, chaseTime, minChaseTime, maxChaseTime, sightDistance, jumpScareTime;
-    public bool shouldMove, playerInSight, playerCaptureRange, testCo, gotShot, reset;
+    public bool playerInSight, playerCaptureRange, testCo, gotShot, reset;
     public bool isStaggered, isChasing, isWalking, isIdle, isAlerted, playerCaptured, playerThrow;
     //public int randIdleTime;
 
@@ -28,6 +28,8 @@ public class SupayAITest : MonoBehaviour
 
     void Start()
     {
+        //gameObject.SetActive(false);
+        chaseTime = 5f;
         agent = GetComponent<NavMeshAgent>();
         playerInSight = false;
         playerCaptureRange = false;
@@ -49,6 +51,10 @@ public class SupayAITest : MonoBehaviour
                 playerInSight = true;
             }
         }
+        if (isAlerted && !playerInSight)
+        {
+            Alerted();
+        }
         if (!playerInSight)
         {
             Patrol();
@@ -57,6 +63,8 @@ public class SupayAITest : MonoBehaviour
             Chase();
         else if (playerInSight && playerCaptureRange)
             Capture();
+        
+
 
 
     }
@@ -75,6 +83,16 @@ public class SupayAITest : MonoBehaviour
 
         result = Vector3.zero;
         return false;
+    }
+
+    void Alerted()
+    {
+        agent.speed = 0;
+        anim.ResetTrigger("walk");
+        anim.ResetTrigger("idle");
+        anim.SetTrigger("alerted");
+        StartCoroutine("alertRoutine");
+
     }
     void Patrol()
     {
@@ -117,13 +135,27 @@ public class SupayAITest : MonoBehaviour
 
     void Chase()
     {
+        if (isStaggered)
+        {
+            agent.speed = 0;
+            StartCoroutine("staggerDelay");
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("idle");
+            anim.ResetTrigger("sprint");
+            anim.SetTrigger("staggered");
+
+        }
+        else
+        {
+            
+            agent.speed = chaseSpeed;
+            anim.ResetTrigger("walk");
+            anim.ResetTrigger("idle");
+            anim.ResetTrigger("staggered");
+            anim.SetTrigger("sprint");
+        }
         dest = player.position;
         agent.destination = dest;
-        agent.speed = chaseSpeed;
-        anim.ResetTrigger("walk");
-        anim.ResetTrigger("idle");
-        anim.ResetTrigger("staggered");
-        anim.SetTrigger("sprint");
         if (testCo)
         {
             testCo = false;
@@ -149,6 +181,10 @@ public class SupayAITest : MonoBehaviour
         anim.SetTrigger("jumpScare");
         StartCoroutine(deathRoutine());
     }
+    void playerIsCaptured()
+    {
+        agent.speed = 0;
+    }
 
     void Idle()
     {
@@ -160,6 +196,13 @@ public class SupayAITest : MonoBehaviour
 
     }
 
+    IEnumerator alertRoutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Debug.Log("it works");
+        isAlerted = false;
+        playerInSight = true;
+    }
     IEnumerator idleRoutine()
     {
         yield return new WaitForSeconds(4f);
@@ -171,7 +214,8 @@ public class SupayAITest : MonoBehaviour
     IEnumerator chaseRoutine()
     {
         //isChasing = true;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(chaseTime);
+        chaseTime = 5;
         testCo = true;
         playerInSight = false;
     }
@@ -179,14 +223,18 @@ public class SupayAITest : MonoBehaviour
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(jumpScareTime);
-        //playerThrow = true;
+        playerCaptured = true;
+        anim.ResetTrigger("jumpScare");
+        anim.SetTrigger("throw");
+        
+
     }
     IEnumerator staggerDelay()
     {
         yield return new WaitForSeconds(0.5f);
         isStaggered = false;
         //shouldMove = true;
-        isChasing = true;
+        //isChasing = true;
     }
     IEnumerator waitAFrame()
     {

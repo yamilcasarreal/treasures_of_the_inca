@@ -33,12 +33,14 @@ public class Gun : MonoBehaviour
     {
         if (canShoot && Input.GetButtonDown("Fire1"))
         {
+
             muzzle_Flash.Play();
             shooting_Sound.Play();
             Recoil_Script.RecoilFire();
             Shoot();
             StartCoroutine(ShootDelay());
-            //supayAI.isChasing = true;
+            supayAITest.isAlerted = true;
+            supayAITest.chaseTime = 10f;
         }
     }
     void Shoot()
@@ -50,6 +52,8 @@ public class Gun : MonoBehaviour
             if (hit.collider.gameObject.tag == "Supay")
             {
                 supayAITest.playerInSight = true;
+                //supayAITest.chaseTime = 10f;
+                supayAITest.isStaggered = true;
                 supayAITest.gotShot = true;
                 supayAITest.reset = true;
             }

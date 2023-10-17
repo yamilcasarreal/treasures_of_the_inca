@@ -2093,7 +2093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  range: 10
+  range: 50
   anim: {fileID: 1221331728}
   walkSpeed: 2
   chaseSpeed: 5
@@ -2104,8 +2104,8 @@ MonoBehaviour:
   chaseTime: 0
   minChaseTime: 3
   maxChaseTime: 5
-  sightDistance: 5
-  jumpScareTime: 5
+  sightDistance: 10
+  jumpScareTime: 3
   shouldMove: 0
   playerInSight: 0
   playerCaptureRange: 0
