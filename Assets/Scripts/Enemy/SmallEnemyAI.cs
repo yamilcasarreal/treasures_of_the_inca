@@ -13,7 +13,7 @@ public class SmallEnemyAI : MonoBehaviour
     public float range; //radius of sphere
     public Animator anim;
     public float walkSpeed, chaseSpeed, idleSpeed, idleTime, minIdleTime, maxIdleTime, chaseTime, minChaseTime, maxChaseTime, sightDistance;
-    public bool playerInSight, testCo, gotShot, reset;
+    public bool playerInSight, playerInRange, testCo, gotShot, reset;
     public bool isStaggered, isWalking, isIdle, isAlerted, isDead;
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
@@ -54,6 +54,10 @@ public class SmallEnemyAI : MonoBehaviour
         }
         else if (playerInSight && !isDead)
             Chase();
+        else if (playerInSight && !isDead && playerInRange)
+        {
+            Attack();
+        }
 
     }
 
@@ -167,7 +171,6 @@ public class SmallEnemyAI : MonoBehaviour
         anim.ResetTrigger("idle");
         anim.SetTrigger("attack");
         StartCoroutine(attackDelay());
-        anim.ResetTrigger("attack");
     }
 
     IEnumerator idleRoutine()
@@ -208,6 +211,7 @@ public class SmallEnemyAI : MonoBehaviour
     IEnumerator attackDelay()
     {
         yield return new WaitForSeconds(2f);
+        Chase();
     }
 
     /*

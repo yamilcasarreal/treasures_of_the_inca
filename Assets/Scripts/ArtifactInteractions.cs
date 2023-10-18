@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ArtifactInteractions : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class ArtifactInteractions : MonoBehaviour
     public void ArtifactGrabbed()
     {
         numberOfArtifactsFound++;
+
+        if (numberOfArtifactsFound >= numberOfArtifacts)
+            WinGame();
+
         text.GetComponent<TMPro.TextMeshProUGUI>().text = numberOfArtifactsFound + "/" + numberOfArtifacts + " Artifacts Found";
         StartCoroutine("Timer", displayTextTime);
     }
@@ -25,5 +30,10 @@ public class ArtifactInteractions : MonoBehaviour
         text.SetActive(true);
         yield return new WaitForSeconds(displayTimer);
         text.SetActive(false);
+    }
+
+    private void WinGame()
+    {
+        SceneManager.LoadScene("Roger-UI-Changes");
     }
 }

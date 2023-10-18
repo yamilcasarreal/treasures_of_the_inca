@@ -27,9 +27,10 @@ public class HitPlayer : MonoBehaviour
     IEnumerator Timer(float attackSpeed)
     {
         waiting = true;
-        this.GetComponent<SmallEnemyAI>().Attack();
+        this.GetComponent<SmallEnemyAI>().playerInRange = true;
         playerGameObject.GetComponent<PlayerHP>().changePlayerHP(-attackDamage);
         yield return new WaitForSeconds(attackSpeed);
         waiting = false;
+        this.GetComponent<SmallEnemyAI>().playerInRange = false;
     }
 }
