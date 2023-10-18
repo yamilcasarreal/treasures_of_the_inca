@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using Random = UnityEngine.Random;
 using UnityEngine;
 using UnityEngine.AI; //important
+using UnityEngine.SceneManagement;
 
 public class SupayAITest : MonoBehaviour
 {
@@ -181,6 +182,7 @@ public class SupayAITest : MonoBehaviour
         anim.ResetTrigger("sprint");
         anim.SetTrigger("jumpScare");
         StartCoroutine(deathRoutine());
+        
     }
     void playerIsCaptured()
     {
@@ -227,8 +229,9 @@ public class SupayAITest : MonoBehaviour
         playerCaptured = true;
         anim.ResetTrigger("jumpScare");
         anim.SetTrigger("throw");
-        
 
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Roger-UI-Changes");
     }
     IEnumerator staggerDelay()
     {
