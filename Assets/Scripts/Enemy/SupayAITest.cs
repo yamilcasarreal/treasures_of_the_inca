@@ -230,7 +230,7 @@ public class SupayAITest : MonoBehaviour
         anim.ResetTrigger("jumpScare");
         anim.SetTrigger("throw");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("Roger-UI-Changes");
     }
     IEnumerator staggerDelay()

@@ -10,6 +10,12 @@ public interface IInteract
 public class Interact : MonoBehaviour
 {
     public float interactDistance;
+    public SupayAITest supayAITest;
+
+    void Start()
+    {
+        supayAITest = GameObject.FindGameObjectWithTag("Supay").GetComponent<SupayAITest>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,6 +28,8 @@ public class Interact : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, layerMask))
             {
                 var interactable = hit.transform.gameObject.GetComponent<IInteract>();
+                supayAITest.playerInSight = true;
+                supayAITest.chaseTime = 20f;
                 interactable.Interaction();
             }
 

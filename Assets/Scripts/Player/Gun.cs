@@ -44,7 +44,7 @@ public class Gun : MonoBehaviour
             StartCoroutine(ShootDelay());
             if (supayAITest.playerInSight == false)
                 supayAITest.isAlerted = true;
-            supayAITest.chaseTime = 10f;
+            supayAITest.chaseTime = 20f;
         }
     }
     void Shoot()

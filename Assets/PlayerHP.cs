@@ -11,7 +11,7 @@ public class PlayerHP : MonoBehaviour
     public void changePlayerHP(int changeInHP)
     {
         currentHP += changeInHP;
-        text.GetComponent<TMPro.TextMeshProUGUI>().text = currentHP + "";
+        text.GetComponent<TMPro.TextMeshProUGUI>().text = "HP: " + currentHP + "";
 
         if (currentHP <= 0)
         {
