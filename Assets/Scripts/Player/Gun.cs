@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     //gun behaviors
     public float range = 100f;
     public bool canShoot = true;
+    public int gunDamage;
     public float shootDelay = 1f;
     private Recoil Recoil_Script;
 
@@ -62,6 +63,7 @@ public class Gun : MonoBehaviour
             if (hit.collider.gameObject.tag == "smallEnemy")
             {
                 smallEnemyAI = hit.collider.gameObject.GetComponent<SmallEnemyAI>();
+                hit.collider.gameObject.GetComponent<SmallEnemyHP>().changeSmallEnemyHP(-gunDamage);
                 smallEnemyAI.playerInSight = true;
                 //supayAITest.chaseTime = 10f;
                 smallEnemyAI.isStaggered = true;

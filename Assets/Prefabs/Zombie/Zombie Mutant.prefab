@@ -569,6 +569,8 @@ GameObject:
   - component: {fileID: 6483503660890792571}
   - component: {fileID: 3622597072697440169}
   - component: {fileID: 3148667168211663852}
+  - component: {fileID: 8617615078388675483}
+  - component: {fileID: 5967694565090046328}
   m_Layer: 0
   m_Name: Zombie Mutant
   m_TagString: smallEnemy
@@ -644,7 +646,7 @@ MonoBehaviour:
   playerInSight: 0
   testCo: 0
   gotShot: 0
-  reset: 0
+  reset: 1
   isStaggered: 0
   isWalking: 0
   isIdle: 0
@@ -695,6 +697,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.08, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8617615078388675483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916149103499710375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6229d7c23af0050459f268002220ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerGameObject: {fileID: 0}
+  attackDamage: 0
+  attackSpeed: 0
+  attackDistance: 0
+--- !u!114 &5967694565090046328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916149103499710375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303edd064becd9e4baf6a5ab94f5fe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5182091855250606883
 GameObject:
   m_ObjectHideFlags: 0
