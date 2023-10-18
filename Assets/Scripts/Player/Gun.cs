@@ -27,7 +27,7 @@ public class Gun : MonoBehaviour
         Recoil_Script = GetComponent<Recoil>();
         shooting_Sound = GetComponent<AudioSource>();
         supayAITest = GameObject.Find("Supay").GetComponent<SupayAITest>();
-        smallEnemyAI = GameObject.Find("Zombie Mutant").GetComponent<SmallEnemyAI>();
+        //smallEnemyAI = GameObject.FindGameObjectsWithTag("smallEnemy").GetComponent<SmallEnemyAI>();
     }
 
     // Update is called once per frame
@@ -61,6 +61,7 @@ public class Gun : MonoBehaviour
 
             if (hit.collider.gameObject.tag == "smallEnemy")
             {
+                smallEnemyAI = hit.collider.gameObject.GetComponent<SmallEnemyAI>();
                 smallEnemyAI.playerInSight = true;
                 //supayAITest.chaseTime = 10f;
                 smallEnemyAI.isStaggered = true;
