@@ -9,7 +9,7 @@ public class PlayerMovementTest : MonoBehaviour
 
 
     //branch test
-    public bool CanMove { get; private set; } = true;
+    public bool CanMove  = true;
     public bool isSprinting => canSprint && Input.GetKey(sprintKey);
     private bool ShouldJump => Input.GetKey(jumpKey) && characterController.isGrounded;
     private bool ShouldCrouch => Input.GetKey(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;

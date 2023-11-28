@@ -17,6 +17,8 @@ public class SupayAITest : MonoBehaviour
     public float walkSpeed, chaseSpeed, idleSpeed, idleTime, minIdleTime, maxIdleTime, chaseTime, minChaseTime, maxChaseTime, sightDistance, jumpScareTime;
     public bool playerInSight, playerCaptureRange, testCo, gotShot, reset;
     public bool isStaggered, isChasing, isWalking, isIdle, isAlerted, playerCaptured, playerThrow;
+    public GameObject flashlight;
+    public GameObject playerObject;
     //public int randIdleTime;
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
@@ -181,6 +183,8 @@ public class SupayAITest : MonoBehaviour
         anim.ResetTrigger("idle");
         anim.ResetTrigger("sprint");
         anim.SetTrigger("jumpScare");
+        playerObject.GetComponent<PlayerMovementTest>().CanMove = false;
+       
         StartCoroutine(deathRoutine());
         
     }

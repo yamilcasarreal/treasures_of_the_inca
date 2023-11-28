@@ -13,12 +13,12 @@ public class SmallEnemyAI : MonoBehaviour
     public float range; //radius of sphere
     public Animator anim;
     public float walkSpeed, chaseSpeed, idleSpeed, idleTime, minIdleTime, maxIdleTime, chaseTime, minChaseTime, maxChaseTime, sightDistance;
-    public bool playerInSight, playerInRange, testCo, gotShot, reset, wait;
+    public bool playerInSight, playerInRange, testCo, gotShot, reset, wait, isAttacking;
     public bool isStaggered, isWalking, isIdle, isAlerted, isDead;
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
-
+    GameObject playerGameObject;
     public Transform player;
     Transform currentDest;
     Vector3 dest;
@@ -26,6 +26,7 @@ public class SmallEnemyAI : MonoBehaviour
 
     void Start()
     {
+        isAttacking = false;
         //gameObject.SetActive(false);
         chaseTime = 5f;
         agent = GetComponent<NavMeshAgent>();
@@ -167,6 +168,8 @@ public class SmallEnemyAI : MonoBehaviour
         anim.ResetTrigger("walk");
         anim.ResetTrigger("idle");
         anim.SetTrigger("attack");
+        isAttacking = true;
+        
 
         StartCoroutine(attackDelay());
     }
@@ -174,9 +177,7 @@ public class SmallEnemyAI : MonoBehaviour
     IEnumerator idleRoutine()
     {
         yield return new WaitForSeconds(4f);
-        //Debug.Log("it works");
         isWalking = true;
-        //Patrol();
     }
 
     IEnumerator chaseRoutine()
@@ -214,6 +215,7 @@ public class SmallEnemyAI : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         playerInRange = false;
+        isAttacking = false;
     }
 
 }
