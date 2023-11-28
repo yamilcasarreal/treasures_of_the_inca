@@ -483,6 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59969f5fa9e4f374aa6684c399debdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  currentHP: 100
 --- !u!1 &2665748169797528437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5802,6 +5804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   canShoot: 1
+  gunDamage: 0
   shootDelay: 1
   shooting_Sound: {fileID: 0}
   muzzle_Flash: {fileID: 2619301956083170386}
@@ -6079,6 +6082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactDistance: 1.7
+  supayAITest: {fileID: 0}
 --- !u!1 &8628471279752848809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6314,7 +6318,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 20
+  m_Intensity: 25
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
