@@ -8,19 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Fire_AlphaDistort_Ramped
-  m_Shader: {fileID: 4800000, guid: 99134b1f0c27d54469a840832a28fadf, type: 3}
+  m_Shader: {fileID: 4800000, guid: d985403ea514e7c46bf7c2fab31b9d95, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _WINDQUALITY_NONE
-  m_InvalidKeywords:
-  - _DOUBLESIDED_ON
-  - _SURFACE_TYPE_TRANSPARENT
   - _USEALPHAOVERRIDE_ON
   - _USERAMP_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 1
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap:
     MotionVector: User
@@ -32,11 +29,35 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AlphaOverride:
         m_Texture: {fileID: 2800000, guid: d2a0655842a345e3a08c94b09a7483f8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CubemapBlured:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cubmap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -44,7 +65,19 @@ Material:
         m_Texture: {fileID: 2800000, guid: 204e24b3132c6754abe847f62aa2807b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ExtraTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HeightMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -56,30 +89,84 @@ Material:
         m_Texture: {fileID: 2800000, guid: d2a0655842a345e3a08c94b09a7483f8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SecondTex:
         m_Texture: {fileID: 2800000, guid: 430dca26c2c945b28537f0c49eb27163, type: 3}
         m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - _SmoothnessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SubsurfaceTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 10
     - _AlphaMul: 1.5
     - _AlphaSrcBlend: 1
+    - _AlphaToMask: 0
     - _BillboardKwToggle: 0
     - _BillboardShadowFade: 0.5
+    - _Blend: 0
     - _BlendMode: 0
+    - _BlendModePreserveSpecular: 1
+    - _BlendOp: 0
     - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
     - _ClampUV: 0
     - _ColorAdd: 0
+    - _ColorMode: 0
     - _ColorMul: 1
     - _ColorMul2: 1
     - _Coloring: 1
+    - _Cull: 2
     - _CullMode: 0
     - _CullModeForward: 0
     - _Culling: 0
@@ -91,17 +178,26 @@ Material:
     - _DissolveFactor: 0
     - _DissolveSmoothness: 0.202
     - _DistanceFadeout: 0
+    - _DistortionBlend: 0.5
     - _DistortionEnable: 0
+    - _DistortionEnabled: 0
     - _DistortionIntensity: 0.1
     - _DistortionOnly: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0.1
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
-    - _DstBlend: 10
+    - _DstBlend: 0
+    - _DstBlendAlpha: 0
     - _DstBlendOutline: 10
+    - _EmissionMultiplayer: 0
+    - _EmissionSwitch: 0
     - _EnableFogOnTransparent: 0
     - _FadeoutDistance: 0.3
     - _FadeoutY: -0.06
+    - _FlipbookBlending: 0
+    - _FlipbookMode: 0
     - _Fresnel: 0
     - _FresnelBlend: 0
     - _FresnelBorderColorMultiplier: 1
@@ -117,18 +213,24 @@ Material:
     - _IgnoreVertexAlpha: 0
     - _InvFade: 1
     - _LookupLine: 0
+    - _MetalicBrightnes: 0
     - _Metallic: 0
     - _MiddlePointPos: 0.8
     - _MinAlpha: 0
     - _Mode: 0
     - _MultiplyNoiseDesaturation: 1
+    - _NormalMapDepth: 1
     - _NormalMapKwToggle: 0
     - _OcclusionStrength: 1
     - _Offset1: 0
     - _Offset2: 0
     - _OpaqueCullMode: 2
+    - _ParalaxOffset: 0.001
     - _Parallax: 0.02
     - _PremultipliedRGBTexture: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _ReceivesSSR: 0
     - _ReceivesSSRTransparent: 0
     - _RenderQueueType: 4
@@ -142,11 +244,19 @@ Material:
     - _SecondTexSwapUV: 0
     - _SecondTexture: 3
     - _SecondTextureType: 1
+    - _SmoothFromMapSwitch: 1
+    - _SmoothRough: 0
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
+    - _Snoothness: 1
     - _SoftFadeFactor: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
     - _SourceBlendRGB: 10
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
     - _SrcBlendOutline: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
@@ -161,9 +271,11 @@ Material:
     - _SubsurfaceIndirect: 0.25
     - _SubsurfaceKwToggle: 0
     - _SupportDecals: 1
+    - _Surface: 0
     - _SurfaceType: 1
     - _SwapUV: 0
     - _TextureType: 1
+    - _Tiling: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentSortPriority: 0
@@ -183,12 +295,18 @@ Material:
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
     - _AlphaOverrideChannel: {r: 1, g: 0, b: 0, a: 0}
     - _AlphaOverridePanning: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
+    - _CubemapColor: {r: 0, g: 0, b: 0, a: 1}
     - _DetailAdditiveChannel: {r: 0, g: 0, b: 0, a: 0}
     - _DetailDisolveChannel: {r: 1, g: 0, b: 0, a: 0}
     - _DetailDistortionChannel: {r: 1, g: 0, b: 0, a: 0}
@@ -210,6 +328,7 @@ Material:
     - _MidColor: {r: 1, g: 0.26896533, b: 0, a: 0}
     - _ScrollingSpeed: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _SecondTexSpeed_NoiseForce: {r: 0.05, g: 0.05, b: 0.5, a: 0.5}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _UnlitColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
