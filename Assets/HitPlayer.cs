@@ -28,7 +28,10 @@ public class HitPlayer : MonoBehaviour
     {
         waiting = true;
         //this.GetComponent<SmallEnemyAI>().playerInRange = true;
-        playerGameObject.GetComponent<PlayerHP>().changePlayerHP(-attackDamage);
+        if (GetComponent<SmallEnemyAI>().isAttacking && GetComponent<SmallEnemyAI>().playerInRange)
+        {
+            playerGameObject.GetComponent<PlayerHP>().changePlayerHP(-attackDamage);
+        }
         yield return new WaitForSeconds(attackSpeed);
         waiting = false;
         //this.GetComponent<SmallEnemyAI>().playerInRange = false;
