@@ -1450,6 +1450,7 @@ MonoBehaviour:
   xPos: 0
   zPos: 0
   enemyCount: 0
+  Spawner: {fileID: 0}
 --- !u!4 &855384342
 Transform:
   m_ObjectHideFlags: 0
@@ -3465,7 +3466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013057997990, guid: 35e86af1126343146985702c521cb10e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000013057997990, guid: 35e86af1126343146985702c521cb10e, type: 3}
       propertyPath: m_TagString
