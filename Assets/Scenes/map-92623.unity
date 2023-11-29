@@ -44666,6 +44666,10 @@ PrefabInstance:
       propertyPath: gunDamage
       value: 34
       objectReference: {fileID: 0}
+    - target: {fileID: 433873457318396835, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
+      propertyPath: ammoReserve
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1119213304162565028, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
       propertyPath: m_Layer
       value: 7
