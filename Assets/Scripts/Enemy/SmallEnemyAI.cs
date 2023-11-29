@@ -203,7 +203,7 @@ public class SmallEnemyAI : MonoBehaviour
     IEnumerator waitAFrame()
     {
         yield return 0;
-        if (agent.remainingDistance <= agent.stoppingDistance + 4)
+        if (agent.remainingDistance <= agent.stoppingDistance + 2)
         {
             //Debug.Log(agent.remainingDistance);
             playerInRange = true;
