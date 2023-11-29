@@ -26,7 +26,7 @@ public class ZombieSounds : MonoBehaviour
         if (smallEnemyAI.playerInSight == true)
         {
             //breathSource.Stop();
-            Breath();
+            //Breath();
         }
         if (smallEnemyAI.isStaggered)
         {
@@ -59,6 +59,8 @@ public class ZombieSounds : MonoBehaviour
         chaseSource.clip = chase[n];
         if (chaseSource.isPlaying == false)
             chaseSource.PlayOneShot(chaseSource.clip);
+        chase[n] = chase[0];
+        chase[0] = chaseSource.clip;
     }
     public void ZombieAttack()
     {
