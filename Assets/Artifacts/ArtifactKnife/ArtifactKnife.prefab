@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 4640489834623584651}
   - component: {fileID: 6004789307538725947}
   - component: {fileID: 2879950273327710344}
+  - component: {fileID: 1764854757216529640}
   m_Layer: 15
   m_Name: ArtifactKnife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3414929876583228727
 Transform:
   m_ObjectHideFlags: 0
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887132825644355064}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 1.444, y: 0.25401777, z: 0}
   m_LocalScale: {x: 3.5242863, y: 3.5242858, z: 3.5242858}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!33 &3015442436358128989
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -118,3 +119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4817c5f13e7a4a8498b86baa401ab1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1764854757216529640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887132825644355064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a188a86a1adf844a34954b2e1017f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 1
