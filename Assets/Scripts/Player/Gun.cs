@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
     //gun behaviors
     public float range = 100f;
     public bool canShoot = true, isReloading = false, isShooting = false;
-    public int gunDamage, currentAmmoInGun, ammoReserve = 999, totalAmmoInGun = 7;
+    public int gunDamage, currentAmmoInGun, ammoReserve = 7, totalAmmoInGun = 7;
     public float shootDelay = 1f;
     private Recoil Recoil_Script;
 
