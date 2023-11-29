@@ -9,7 +9,7 @@ public class SmallEnemyHP : MonoBehaviour
     public float deathTimer;
     public Animator anim;
     public NavMeshAgent agent;
-    public Consumables ammo;
+    public GameObject player;
 
     public void changeSmallEnemyHP(int changeInHP)
     {
@@ -25,6 +25,7 @@ public class SmallEnemyHP : MonoBehaviour
             anim.ResetTrigger("attack");
             anim.SetTrigger("dead");
 
+            player.GetComponent<Consumables>().SpawnAmmo(this.gameObject.transform.position);
             StartCoroutine("Timer", deathTimer);
         }
     }
@@ -32,7 +33,6 @@ public class SmallEnemyHP : MonoBehaviour
     IEnumerator Timer(float deathTimer)
     {
         yield return new WaitForSeconds(deathTimer);
-        ammo.GetComponent<Consumables>().SpawnAmmo(this.gameObject.transform.position);
         Destroy(this.gameObject);
     }
 }

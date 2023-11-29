@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrabConsumables : MonoBehaviour, IInteract
 {
     private GameObject player;
+    public Gun gun;
 
     public void Interaction()
     {

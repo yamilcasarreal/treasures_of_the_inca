@@ -131,7 +131,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void UpdateAmmoText()
+    public void UpdateAmmoText()
     {
         ammoCount.text = $"Ammo: {currentAmmoInGun}/{ammoReserve}";
     }

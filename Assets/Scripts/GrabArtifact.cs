@@ -5,6 +5,12 @@ using UnityEngine;
 public class GrabArtifact : MonoBehaviour, IInteract
 {
     private GameObject player;
+    public SupayAITest supayAITest;
+
+    void Start()
+    {
+        supayAITest = GameObject.FindGameObjectWithTag("Supay").GetComponent<SupayAITest>();
+    }
 
     public void Interaction()
     {
@@ -14,6 +20,8 @@ public class GrabArtifact : MonoBehaviour, IInteract
 
         // Runs artifact grabbed function
         player.GetComponent<ArtifactInteractions>().ArtifactGrabbed();
+        supayAITest.playerInSight = true;
+        supayAITest.chaseTime = 20f;
 
         // Destroys artifact
         Destroy(this.gameObject);

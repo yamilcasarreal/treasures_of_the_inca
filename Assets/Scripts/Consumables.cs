@@ -7,7 +7,9 @@ public class Consumables : MonoBehaviour
 {
     System.Random rand = new System.Random();
     public Gun gun;
-    public SmallEnemyAI zombie;
+    public GameObject ammoBox;
+    public GameObject consumables;
+    private GameObject tempAmmo;
     [SerializeField] public int lowRange; // lowest amount of resources possibly given by any consumable
     [SerializeField] public int highRange; // highest amount of resources possibly given by any consumable
 
@@ -17,6 +19,7 @@ public class Consumables : MonoBehaviour
         highRange = 11;
         int ammoGained = rand.Next(lowRange, highRange);
         gun.ammoReserve += ammoGained;
+        gun.UpdateAmmoText();
     }
 
     public void SpawnAmmo(Vector3 enemyPosition)
@@ -25,7 +28,8 @@ public class Consumables : MonoBehaviour
 
         if (dropAmmoCheck == 1)
         {
-            Instantiate(this.gameObject, enemyPosition, this.gameObject.transform.rotation);
+            tempAmmo = Instantiate(ammoBox, enemyPosition, ammoBox.transform.rotation, consumables.transform);
+            tempAmmo.SetActive(true);
         }
 
         else
