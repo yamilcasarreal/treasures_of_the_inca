@@ -15,7 +15,9 @@ public class PlayerHP : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("Roger-UI-Changes");
+            Cursor.visible = true;
         }
     }
 }

@@ -235,7 +235,9 @@ public class SupayAITest : MonoBehaviour
         anim.SetTrigger("throw");
 
         yield return new WaitForSeconds(4f);
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Roger-UI-Changes");
+        Cursor.visible = true;
     }
     IEnumerator staggerDelay()
     {

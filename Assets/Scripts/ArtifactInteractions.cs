@@ -34,6 +34,8 @@ public class ArtifactInteractions : MonoBehaviour
 
     private void WinGame()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("WinScreen-Roger");
+        Cursor.visible = true;
     }
 }
