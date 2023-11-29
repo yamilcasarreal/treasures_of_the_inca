@@ -34,6 +34,6 @@ public class ArtifactInteractions : MonoBehaviour
 
     private void WinGame()
     {
-        SceneManager.LoadScene("Roger-UI-Changes");
+        SceneManager.LoadScene("WinScreen-Roger");
     }
 }
