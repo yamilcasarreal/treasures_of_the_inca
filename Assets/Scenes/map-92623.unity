@@ -8657,6 +8657,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4098096574513510, guid: e280730aedd6d294e8d4c2733d492d0a, type: 3}
   m_PrefabInstance: {fileID: 150916916}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &151376589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8628471279752848809, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
+  m_PrefabInstance: {fileID: 1522772546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &151376591
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151376589}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ec936dcf2e1e6e47942b7f01bdcc40e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &156221577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43633,7 +43659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1480570523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44618,7 +44644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173227011089441124, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1458.2
+      value: -1433.6
       objectReference: {fileID: 0}
     - target: {fileID: 8173227011089441124, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44626,7 +44652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173227011089441124, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 754.4
+      value: 754
       objectReference: {fileID: 0}
     - target: {fileID: 8173227011089441124, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44710,6 +44736,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6922552503020879025, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 150370813}
+    - targetCorrespondingSourceObject: {fileID: 8628471279752848809, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 151376591}
     - targetCorrespondingSourceObject: {fileID: 5006828640079316983, guid: fcadb9314cff4aa479bda7d8342595a4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 684222597}
@@ -51140,6 +51169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Mutant
       objectReference: {fileID: 0}
+    - target: {fileID: 4916149103499710375, guid: a8fc8b906f91bed45a70b8859a724937, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5967694565090046328, guid: a8fc8b906f91bed45a70b8859a724937, type: 3}
       propertyPath: anim
       value: 
@@ -51164,6 +51197,10 @@ PrefabInstance:
       propertyPath: centrePoint
       value: 
       objectReference: {fileID: 1248318877}
+    - target: {fileID: 6483503660890792571, guid: a8fc8b906f91bed45a70b8859a724937, type: 3}
+      propertyPath: sightDistance
+      value: 14.48
+      objectReference: {fileID: 0}
     - target: {fileID: 8617615078388675483, guid: a8fc8b906f91bed45a70b8859a724937, type: 3}
       propertyPath: player
       value: 

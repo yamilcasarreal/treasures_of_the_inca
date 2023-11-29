@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator EnemyDrop()
     {
-        while (enemyCount < 10)
+        while (enemyCount < 4)
         {
             xPos = Random.Range((int)Spawner.transform.position.x, (int)Spawner.transform.position.x + 20);
             zPos = Random.Range((int)Spawner.transform.position.z, (int)Spawner.transform.position.z + 20);

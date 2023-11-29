@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     public int gunDamage;
     public float shootDelay = 1f;
     private Recoil Recoil_Script;
-
+    public Animator anim;
     public AudioSource shooting_Sound;
     public ParticleSystem muzzle_Flash;
     public Camera fpsCam;
@@ -45,6 +45,9 @@ public class Gun : MonoBehaviour
             if (supayAITest.playerInSight == false)
                 supayAITest.isAlerted = true;
             supayAITest.chaseTime = 20f;
+        }
+        if (Input.GetKeyDown("r")){
+            anim.SetTrigger("Reload");
         }
     }
     void Shoot()
