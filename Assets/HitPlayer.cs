@@ -11,28 +11,42 @@ public class HitPlayer : MonoBehaviour
     public float attackSpeed;
     public float attackDistance;
 
-    private bool waiting = false;
+    public bool waiting = false;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
+        /*Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit, attackDistance))
             if (hit.collider.gameObject.tag == "Player" && !waiting && !this.GetComponent<SmallEnemyAI>().isDead)
+                StartCoroutine("Timer", attackSpeed);*/
+        
+    }
+    
+    void OnCollisionEnter(Collision col)
+    {
+        if (!waiting)
+        {
+            if (col.gameObject.tag == "Player")
+            {
+                Debug.Log("HIthithit");
                 StartCoroutine("Timer", attackSpeed);
+            }
+        }
     }
 
     // Shows text for a certain number of time
     IEnumerator Timer(float attackSpeed)
     {
         waiting = true;
+        yield return new WaitForSeconds(.1f);
         //this.GetComponent<SmallEnemyAI>().playerInRange = true;
-        if (GetComponent<SmallEnemyAI>().isAttacking && GetComponent<SmallEnemyAI>().playerInRange)
-        {
-            playerGameObject.GetComponent<PlayerHP>().changePlayerHP(-attackDamage);
-        }
-        yield return new WaitForSeconds(attackSpeed);
+        //if (GetComponent<SmallEnemyAI>().isAttacking && GetComponent<SmallEnemyAI>().playerInRange)
+        //{
+        playerGameObject.GetComponent<PlayerHP>().changePlayerHP(-attackDamage);
+        //}
+        
         waiting = false;
         //this.GetComponent<SmallEnemyAI>().playerInRange = false;
     }

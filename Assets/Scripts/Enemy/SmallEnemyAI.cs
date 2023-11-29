@@ -205,7 +205,7 @@ public class SmallEnemyAI : MonoBehaviour
         yield return 0;
         if (agent.remainingDistance <= agent.stoppingDistance + 4)
         {
-            Debug.Log(agent.remainingDistance);
+            //Debug.Log(agent.remainingDistance);
             playerInRange = true;
         }
         
@@ -213,7 +213,7 @@ public class SmallEnemyAI : MonoBehaviour
 
     IEnumerator attackDelay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.0f);
         playerInRange = false;
         isAttacking = false;
     }
