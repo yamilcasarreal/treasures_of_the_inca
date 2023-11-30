@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffab51012c51ee4e86cedae1437eb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanMove: 1
   canSprint: 1
   canJump: 1
   canCrouch: 1
@@ -558,12 +559,12 @@ Light:
   m_GameObject: {fileID: 2927639092958073974}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.05
-  m_Range: 1.8
-  m_SpotAngle: 30
+  m_Intensity: 200
+  m_Range: 200.00009
+  m_SpotAngle: 38.275513
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -5804,7 +5805,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   canShoot: 1
+  isReloading: 0
+  isShooting: 0
   gunDamage: 0
+  currentAmmoInGun: 0
+  ammoReserve: 7
+  totalAmmoInGun: 7
   shootDelay: 1
   shooting_Sound: {fileID: 0}
   muzzle_Flash: {fileID: 2619301956083170386}
@@ -5812,6 +5818,8 @@ MonoBehaviour:
   supayAI: {fileID: 0}
   supayAITest: {fileID: 0}
   smallEnemyAI: {fileID: 0}
+  ammoCount: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &7462090788946080429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6082,7 +6090,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactDistance: 1.7
-  supayAITest: {fileID: 0}
 --- !u!1 &8628471279752848809
 GameObject:
   m_ObjectHideFlags: 0
