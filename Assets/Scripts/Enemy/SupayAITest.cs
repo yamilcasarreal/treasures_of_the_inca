@@ -238,7 +238,7 @@ public class SupayAITest : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene("Roger-UI-Changes");
+        SceneManager.LoadScene("DeathScreen-Roger");
         Cursor.visible = true;
     }
     IEnumerator staggerDelay()
