@@ -250,7 +250,7 @@ public class SupayAITest : MonoBehaviour
     }
     IEnumerator waitAFrame()
     {
-        yield return 0;
+        yield return null;
         if (agent.remainingDistance <= agent.stoppingDistance + 4)
         {
             Debug.Log(agent.remainingDistance);
