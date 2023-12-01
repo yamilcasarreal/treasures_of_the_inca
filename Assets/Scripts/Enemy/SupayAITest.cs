@@ -241,7 +241,7 @@ public class SupayAITest : MonoBehaviour
     }
     IEnumerator staggerDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         isStaggered = false;
         //shouldMove = true;
         //isChasing = true;

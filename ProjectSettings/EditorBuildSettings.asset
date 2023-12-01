@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/map-92623.unity
     guid: 80ecc3ceaea06fe48be3881e54b96bae
+  - enabled: 1
+    path: Assets/Scenes/WinScreen-Roger.unity
+    guid: 8fe0ce2cc6b1369449428b671ca4f0f6
   m_configObjects: {}
