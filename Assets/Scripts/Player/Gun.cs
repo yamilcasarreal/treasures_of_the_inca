@@ -22,12 +22,14 @@ public class Gun : MonoBehaviour
     public SupayAI supayAI;
     public SupayAITest supayAITest;
     public SmallEnemyAI smallEnemyAI;
+    public PlayerMovementTest playerMovementTest;
     public TextMeshProUGUI ammoCount;
     public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerMovementTest = GameObject.Find("Player").GetComponent<PlayerMovementTest>();
         Recoil_Script = GetComponent<Recoil>();
         shooting_Sound = GetComponent<AudioSource>();
         supayAITest = GameObject.Find("Supay").GetComponent<SupayAITest>();
@@ -44,7 +46,7 @@ public class Gun : MonoBehaviour
             canShoot = false;
         }
 
-        if (canShoot && !isReloading && Input.GetButtonDown("Fire1"))
+        if (playerMovementTest.CanMove && canShoot && !isReloading && Input.GetButtonDown("Fire1"))
         {
             if (currentAmmoInGun == 0)
             {

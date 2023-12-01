@@ -183,8 +183,10 @@ public class SupayAITest : MonoBehaviour
         anim.ResetTrigger("idle");
         anim.ResetTrigger("sprint");
         anim.SetTrigger("jumpScare");
+        //playerObject.SetActive(false);
         playerObject.GetComponent<PlayerMovementTest>().CanMove = false;
-       
+        GameObject.Find("Canvas").SetActive(false);
+
         StartCoroutine(deathRoutine());
         
     }

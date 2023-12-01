@@ -6,6 +6,7 @@ public class HitPlayer : MonoBehaviour
 {
     public Transform player;
     public GameObject playerGameObject;
+    public PlayerMovementTest playerMovementTest;
 
     public int attackDamage;
     public float attackSpeed;
@@ -14,6 +15,10 @@ public class HitPlayer : MonoBehaviour
     public bool waiting = false;
 
     // Update is called once per frame
+    void Start()
+    {
+        playerMovementTest = GameObject.Find("Player").GetComponent<PlayerMovementTest>();
+    }
     void Update()
     {
         /*Vector3 direction = (player.position - transform.position).normalized;
@@ -26,7 +31,7 @@ public class HitPlayer : MonoBehaviour
     
     void OnCollisionEnter(Collision col)
     {
-        if (!waiting)
+        if (!waiting && playerMovementTest.CanMove)
         {
             if (col.gameObject.tag == "Player")
             {
