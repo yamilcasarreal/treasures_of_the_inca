@@ -44,13 +44,13 @@ Material:
     m_Floats:
     - _BillboardKwToggle: 0
     - _BillboardShadowFade: 0.5
-    - _Glossiness: 0.5
+    - _Glossiness: 0.507
     - _HueVariationKwToggle: 0
     - _Metallic: 0
     - _NormalMapKwToggle: 0
     - _SubsurfaceIndirect: 0.25
     - _SubsurfaceKwToggle: 0
-    - _TwoSided: 2
+    - _TwoSided: 0
     - _WindQuality: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
