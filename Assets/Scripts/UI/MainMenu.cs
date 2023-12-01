@@ -24,4 +24,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit successfully!");
     }
+
+    public void LoadPrologue()
+    {
+        SceneManager.LoadScene("PrologueScreen-Roger");
+    }
 }
