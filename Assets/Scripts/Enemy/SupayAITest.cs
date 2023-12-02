@@ -236,7 +236,7 @@ public class SupayAITest : MonoBehaviour
         anim.ResetTrigger("jumpScare");
         anim.SetTrigger("throw");
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("DeathScreen-Roger");
         Cursor.visible = true;
